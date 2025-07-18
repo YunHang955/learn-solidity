@@ -21,8 +21,7 @@ contract Voting{
     // 允许用户投票给某个候选人
      function vote (address btAccount) public {
         // 判断自己不能投票给自己
-        // require(btAccount != msg.sender, "You can't vote for yourself");
-         require(btAccount != msg.sender, unicode"你不能自己给自己投票");
+        require(btAccount != msg.sender, unicode"你不能自己给自己投票");
 
         // 判断候选人不能重复投票
         require(voteMapping[msg.sender][btAccount] == 0, unicode"你已经投票，请勿重复投票");
